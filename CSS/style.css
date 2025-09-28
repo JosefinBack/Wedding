@@ -1,11 +1,55 @@
 body {
     margin: 0px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-image: url(../Pictures/lila.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
-h2 {
+main {
+    height: 100vh;
+}
+
+#headerH2 {
     font-style: italic;
+    font-size: 35px;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+#headerH3 {
+    font-size: 30px;
 }
 
 #header {
     text-align: center;
+    margin-top: 100px;
+}
+
+#topMeny {
+    margin-top: 100px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+#topMeny a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    transition: transform 0.4s ease;
+    background-color: white;
+}
+
+#topMeny a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
