@@ -1,3 +1,17 @@
+(function () {
+    if (!document.getElementById("googleFontsLink")) {
+        const link = document.createElement("link");
+        link.id = "googleFontsLink";
+        link.rel = "stylesheet";
+        link.href = "https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Playfair+Display:wght@400;700&display=swap";
+        document.head.appendChild(link);
+    }
+})();
+
+
+//Great+Vibes
+
+
 let header = document.getElementById("header");
 let meny = document.getElementById("meny");
 

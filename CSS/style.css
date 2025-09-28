@@ -3,27 +3,40 @@ body {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'Playfair Display', serif;
 
     background-image: url(../Pictures/lila.jpg);
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-main {
-    height: 100vh;
+#headerH2 {
+    font-size: 55px;
+    /* font-family: 'Great Vibes', cursive; */
+    font-family: 'Pinyon Script', cursive;
 }
 
-#headerH2 {
-    font-style: italic;
-    font-size: 35px;
+#firstH2OnPage {
+    font-size: 45px;
+    font-family: 'Pinyon Script', cursive;
+    margin: 15px;
+    text-align: center;
 }
 
 h1 {
     font-size: 45px;
 }
 
+h4 {
+    font-size: 20px;
+    margin: 5px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
 #headerH3 {
     font-size: 30px;
+    font-family: 'Pinyon Script', cursive;
 }
 
 #header {
@@ -33,7 +46,6 @@ h1 {
 
 #topMeny {
     margin-top: 100px;
-    margin-bottom: 80px;
     display: flex;
     justify-content: center;
     gap: 40px;
@@ -52,4 +64,34 @@ h1 {
 #topMeny a:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#countdown {
+    text-align: center;
+    font-size: 30px;
+    margin: 30px 0;
+    font-weight: bold;
+    color: rgb(233, 231, 231);
+    font-family: 'Playfair Display', serif;
+}
+
+#countdown span {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 15px;
+    background: #debffa;
+    border: 2px solid #f4edff;
+    border-radius: 10px;
+    width: 180px;
+}
+
+/* main */
+#homePageDiv {
+    width: 730px;
+    line-height: 2;
+    margin: 50px auto;
+}
+
+.PelementCursive {
+    font-style: italic;
 }
