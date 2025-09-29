@@ -27,7 +27,7 @@ h1 {
     font-size: 45px;
 }
 
-h4 {
+#mainH4 {
     font-size: 20px;
     margin: 5px;
     margin-bottom: 25px;
@@ -48,7 +48,7 @@ h4 {
     margin-top: 100px;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
 }
 
 #topMeny a {
@@ -86,12 +86,38 @@ h4 {
 }
 
 /* main */
-#homePageDiv {
-    width: 730px;
+#mainPageDiv {
+    width: 750px;
     line-height: 2;
     margin: 50px auto;
 }
 
 .PelementCursive {
     font-style: italic;
+}
+
+.underlineOnDiv {
+    border-bottom: 1px solid lightgrey;
+}
+
+.picInWeddingDiv {
+    width: 350px;
+    height: auto;
+    text-align: center;
+}
+
+.divFlex {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 30px 0px;
+}
+
+.divFlex a {
+    color: black;
+
+}
+
+.divFlex p {
+    margin: 2px;
 }
