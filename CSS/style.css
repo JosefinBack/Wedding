@@ -101,9 +101,9 @@ h1 {
 }
 
 .picInWeddingDiv {
-    width: 350px;
-    height: auto;
-    text-align: center;
+    width: 200px;
+    height: 200px;
+    background-color: #debffa;
 }
 
 .divFlex {
