@@ -62,8 +62,12 @@ addPersonBtn.addEventListener("click", () => {
     const div = document.createElement("div");
     div.classList.add("person");
     div.innerHTML = `
-        <label>Namn: <input type="text" name="name[]" required></label>
-        <label class="allergy-field">Allergier: <input type="text" name="allergy[]"></label>
+        <label>Förnamn:
+        <input type="text" name="name[]" required></label>
+        <label>Efternamn:
+        <input type="text" name="name[]" required></label>
+        <label>Allergier:
+        <input type="text" name="allergy[]"></label>
         <button type="button" class="removePerson">Ta bort</button>
     `;
     personsDiv.appendChild(div);
@@ -82,11 +86,13 @@ form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const attendance = form.querySelector('input[name="attendance"]:checked')?.value;
-    const names = [...form.querySelectorAll('input[name="name[]"]')].map(i => i.value);
+    const firstNames = [...form.querySelectorAll('input[name="firstName[]"]')].map(i => i.value);
+    const lastNames = [...form.querySelectorAll('input[name="lastName[]"]')].map(i => i.value);
     const allergies = [...form.querySelectorAll('input[name="allergy[]"]')].map(i => i.value);
 
-    const data = names.map((name, i) => ({
-        name: name,
+    const data = firstNames.map((first, i) => ({
+        firstName: first,
+        lastName: lastNames[i] || "",
         allergy: attendance === "NEJ" ? "" : (allergies[i] || ""),
         attendance: attendance
     }));
@@ -109,7 +115,7 @@ form.addEventListener("submit", async (e) => {
     }
 
     try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbwuz6oH2h0Nna1yiJy2GxIJUecwpLpWQ8XOV8871SSshfqM7sDE-9jvbQzLkBbTniRoyw/exec", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbwLRhAmnDpn1rTP-s2EU24272tvxl8tMfU7VseOyXjqSNgTR-3vSYLiteemzCwnuGe45g/exec", {
             method: "POST",
             mode: "no-cors",
             headers: { "Content-Type": "application/json" },

@@ -15,39 +15,47 @@
     <div id="meny"></div>
 
     <main>
-        <h1>OSA till vårt bröllop</h1>
+        <div id="mainDiv">
+            <h2 class="firstH2OnPage">OSA till vårt bröllop</h2>
+            <h3 class="center">Senast den 11 januari 2026 skulle vi vilja ha ert svar</h3>
 
-        <form id="osaForm">
+            <form id="osaForm">
 
-            <fieldset>
-                <legend>Kommer du på bröllopet?</legend>
-                <label>
-                    <input type="radio" name="attendance" value="JA" required>
-                    Ja, jag kommer!
-                </label>
-                <label>
-                    <input type="radio" name="attendance" value="NEJ" required>
-                    Nej, jag kommer tyvärr inte
-                </label>
-            </fieldset>
-
-            <div id="persons">
-                <div class="person">
-                    <label>Namn:
-                        <input type="text" name="name[]" required>
-                    </label>
-                    <label>Allergier:
-                        <input type="text" name="allergy[]">
-                    </label>
+                <div class="divInForm">
+                    <div id="answerOSA">
+                        <p>Kommer du på bröllopet?</p>
+                        <label>
+                            <input type="radio" name="attendance" value="JA" required>
+                            Ja, jag kommer!
+                        </label>
+                        <label>
+                            <input type="radio" name="attendance" value="NEJ" required>
+                            Nej, jag kommer tyvärr inte
+                        </label>
+                    </div>
                 </div>
-            </div>
 
-            <button type="button" id="addPerson">Lägg till en person</button>
-            <button type="submit">Skicka OSA</button>
-        </form>
+                <div class="divInForm">
+                    <p>Personlig information</p>
+                    <div id="persons">
+                        <label>Förnamn:
+                            <input type="text" name="name[]" class="input-field" required>
+                        </label>
+                        <label>Efternamn:
+                            <input type="text" name="name[]" class="input-field" required>
+                        </label>
+                        <label>Allergier:
+                            <input type="text" name="allergy[]" class="input-field">
+                        </label>
+                    </div>
+                </div>
 
+                <button type="button" id="addPerson">Lägg till en person</button>
+                <button type="submit">Skicka OSA</button>
+            </form>
+        </div>
         <div id="message"></div>
-
+        </div>
     </main>
     <script src="../Javascript/header-inside.js"></script>
     <script src="../Javascript/wedding.js"></script>

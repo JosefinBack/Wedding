@@ -1,30 +1,37 @@
+@font-face {
+    font-family: Cardo;
+    src: url(../Fonts/Cardo-Regular.ttf);
+}
+
+@font-face {
+    font-family: Pinyon;
+    src: url(../Fonts/PinyonScript-Regular.ttf);
+}
+
 body {
     margin: 0px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    font-family: 'Playfair Display', serif;
+    font-family: Cardo, serif;
 
     background-image: url(../Pictures/lila.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-
+    background-size: contain;
 }
 
 #headerH2 {
     font-size: 40px;
     /* font-family: 'Great Vibes', cursive; */
-    font-family: 'Pinyon Script', cursive;
+    font-family: Pinyon, cursive;
     letter-spacing: 3px;
     margin: 0px;
     padding: 1px;
 }
 
-#firstH2OnPage {
+.firstH2OnPage {
     font-size: 45px;
-    font-family: 'Pinyon Script', cursive;
+    font-family: Pinyon, cursive;
     margin: 15px;
     text-align: center;
 }
@@ -36,6 +43,11 @@ h1 {
     margin: 10px;
 }
 
+h4 {
+    font-family: Cardo;
+    text-transform: uppercase;
+}
+
 #mainH4 {
     font-size: 20px;
     margin: 5px;
@@ -45,7 +57,7 @@ h1 {
 
 #headerH3 {
     font-size: 30px;
-    font-family: 'Pinyon Script', cursive;
+    font-family: Pinyon, cursive;
 }
 
 #header {
@@ -95,7 +107,16 @@ h1 {
 }
 
 /* main */
-#mainPageDiv {
+
+a {
+    color: black;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+#mainDiv {
     width: 750px;
     line-height: 2;
     margin: 50px auto;
@@ -103,6 +124,10 @@ h1 {
 
 .PelementCursive {
     font-style: italic;
+}
+
+.center {
+    text-align: center;
 }
 
 .underlineOnDiv {
@@ -117,8 +142,7 @@ h1 {
 
 .divFlex {
     display: flex;
-    gap: 15px;
-    justify-content: center;
+    gap: 40px;
     padding: 30px 0px;
 }
 
@@ -131,28 +155,51 @@ h1 {
     margin: 2px;
 }
 
+ul {
+    margin: 5px;
+}
+
 /* Formulär */
 
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
-.person {
-    border: 1px solid #ccc;
+.divInForm {
+    border: 1px solid black;
     padding: 15px;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+.divInForm p {
+    margin: 2px;
+    font-weight: bold;
+}
+
+#persons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 label {
-    display: block;
     margin-bottom: 8px;
+    display: block;
+}
+
+.input-field {
+    border: 1px solid lightgray;
+    font-size: 15px;
+    width: 90%;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 button {
-    background-color: #b68cb8;
+    background-color: #a5d5af;
     color: white;
     border: none;
     padding: 10px 15px;
