@@ -10,12 +10,44 @@
 
 <body>
     <div id=header></div>
+    <div id="countdown"></div>
     <div id="meny"></div>
 
     <main>
-        <h2>OSA</h2>
+        <h1>OSA till vårt bröllop</h1>
+
+        <form id="osaForm">
+
+            <fieldset>
+                <legend>Kommer du på bröllopet?</legend>
+                <label>
+                    <input type="radio" name="attendance" value="JA" required>
+                    Ja, jag kommer!
+                </label>
+                <label>
+                    <input type="radio" name="attendance" value="NEJ" required>
+                    Nej, jag kommer tyvärr inte
+                </label>
+            </fieldset>
+
+            <div id="persons">
+                <div class="person">
+                    <label>Namn:
+                        <input type="text" name="name[]" required>
+                    </label>
+                    <label>Allergier:
+                        <input type="text" name="allergy[]">
+                    </label>
+                </div>
+            </div>
+
+            <button type="button" id="addPerson">Lägg till en person</button>
+            <button type="submit">Skicka OSA</button>
+        </form>
+
+        <div id="message"></div>
+
     </main>
-    <div id="countdown"></div>
 </body>
 
 <script src="../Javascript/header-inside.js"></script>

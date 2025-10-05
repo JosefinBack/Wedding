@@ -1,3 +1,8 @@
+const form = document.getElementById("osaForm");
+const personsDiv = document.getElementById("persons");
+const addPersonBtn = document.getElementById("addPerson");
+const message = document.getElementById("message");
+
 // Datum för bröllopet
 const weddingDate = new Date("May 9, 2026 14:00:00").getTime();
 
@@ -6,13 +11,11 @@ const countdown = setInterval(() => {
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
-    // Räkna ut dagar, timmar, minuter, sekunder
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Skriv ut på sidan
     document.getElementById("countdown").innerHTML = `
     <span>${days} dagar</span>
     <span>${hours} timmar</span>
@@ -20,10 +23,87 @@ const countdown = setInterval(() => {
     <span>${seconds} sekunder</span>
     `;
 
-    // Om nedräkningen är slut
     if (distance < 0) {
         clearInterval(countdown);
-        document.getElementById("countdown").innerHTML =
-            "Idag är det bröllop! 🎉💍";
+        document.getElementById("countdown").innerHTML = "Idag är det bröllop! 🎉💍";
     }
 }, 1000);
+
+// 🔸 Funktion som uppdaterar formuläret beroende på "kommer/inte"
+function updatePersonFields() {
+    const attendance = form.querySelector('input[name="attendance"]:checked')?.value;
+
+    const allPersons = personsDiv.querySelectorAll(".person");
+    allPersons.forEach(person => {
+        const allergyLabel = person.querySelector('.allergy-field');
+        if (!allergyLabel) return; // hoppa över om fältet inte finns
+
+        if (attendance === "NEJ") {
+            allergyLabel.style.display = "none";
+            const allergyInput = allergyLabel.querySelector('input');
+            if (allergyInput) allergyInput.value = ""; // rensa ev. tidigare allergidata
+        } else {
+            allergyLabel.style.display = "block";
+        }
+    });
+
+    // Dölj knappen "Lägg till person" om man valt NEJ
+    addPersonBtn.style.display = attendance === "NEJ" ? "none" : "inline-block";
+}
+
+// Lägg till ny person
+addPersonBtn.addEventListener("click", () => {
+    const div = document.createElement("div");
+    div.classList.add("person");
+    div.innerHTML = `
+        <label>Namn: <input type="text" name="name[]" required></label>
+        <label class="allergy-field">Allergier: <input type="text" name="allergy[]"></label>
+        <button type="button" class="removePerson">Ta bort</button>
+    `;
+    personsDiv.appendChild(div);
+
+    div.querySelector(".removePerson").addEventListener("click", () => div.remove());
+    updatePersonFields(); // uppdatera synlighet för nya fältet
+});
+
+// Lyssna på ändring av JA/NEJ
+form.querySelectorAll('input[name="attendance"]').forEach(radio => {
+    radio.addEventListener("change", updatePersonFields);
+});
+
+// Hantera OSA-svar
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const attendance = form.querySelector('input[name="attendance"]:checked')?.value;
+    const names = [...form.querySelectorAll('input[name="name[]"]')].map(i => i.value);
+    const allergies = [...form.querySelectorAll('input[name="allergy[]"]')].map(i => i.value);
+
+    const data = names.map((name, i) => ({
+        name: name,
+        allergy: attendance === "NEJ" ? "" : (allergies[i] || ""),
+        attendance: attendance
+    }));
+
+    message.textContent = "Skickar...";
+
+    try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbx5oUlWsatyMp-XydG9zhtV_agiSD3E8TvFKm8-f3SHwCG3jjP4duBbBtQhis6bCj1jbw/exec", {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        message.textContent = "Tack för din OSA! 💕";
+        form.reset();
+        personsDiv.innerHTML = `
+            <div class="person">
+                <label>Namn: <input type="text" name="name[]" required></label>
+                <label class="allergy-field">Allergier: <input type="text" name="allergy[]"></label>
+            </div>`;
+    } catch (error) {
+        console.error(error);
+        message.textContent = "Något gick fel. Försök igen senare.";
+    }
+});

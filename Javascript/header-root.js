@@ -17,7 +17,7 @@ let meny = document.getElementById("meny");
 
 header.innerHTML = `
     <h2 id ="headerH2">Välkommen på bröllop mellan</h2>
-    <h1>Anna och Johan</h1>
+    <h1>Anna & Johan</h1>
     <h3 id ="headerH3">9 maj 2026</h3>
 `
 
