@@ -4,10 +4,10 @@ const addPersonBtn = document.getElementById("addPerson");
 const message = document.getElementById("message");
 
 // Datum för bröllopet
-const weddingDate = new Date("May 9, 2026 14:00:00").getTime();
+const weddingDate = new Date("May 9, 2026 15:00:00").getTime();
 
 // Uppdatera varje sekund
-const countdown = setInterval(() => {
+function updateCountdown() {
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
@@ -17,17 +17,23 @@ const countdown = setInterval(() => {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     document.getElementById("countdown").innerHTML = `
-    <span>${days} dagar</span>
-    <span>${hours} timmar</span>
-    <span>${minutes} minuter</span>
-    <span>${seconds} sekunder</span>
+      <span>${days} dagar</span>
+      <span>${hours} timmar</span>
+      <span>${minutes} minuter</span>
+      <span>${seconds} sekunder</span>
     `;
 
     if (distance < 0) {
         clearInterval(countdown);
         document.getElementById("countdown").innerHTML = "Idag är det bröllop! 🎉💍";
     }
-}, 1000);
+}
+
+// 🔹 Kör direkt en gång (så den visas direkt)
+updateCountdown();
+// 🔹 Uppdatera varje sekund därefter
+const countdown = setInterval(updateCountdown, 1000);
+
 
 // 🔸 Funktion som uppdaterar formuläret beroende på "kommer/inte"
 function updatePersonFields() {
@@ -86,6 +92,21 @@ form.addEventListener("submit", async (e) => {
     }));
 
     message.textContent = "Skickar...";
+
+
+    // 🟢 Bekräftelse innan skick
+    let confirmationText = "Är du säker på att du vill skicka din OSA?\n\n";
+    if (attendance === "JA") {
+        confirmationText += `Du kommer att OSA JA för ${names.join(", ")}.`;
+    } else {
+        confirmationText += `Du kommer att OSA NEJ för ${names.join(", ")}.`;
+    }
+
+    const confirmed = confirm(confirmationText);
+    if (!confirmed) {
+        message.textContent = "Inget skickades.";
+        return;
+    }
 
     try {
         const response = await fetch("https://script.google.com/macros/s/AKfycbwuz6oH2h0Nna1yiJy2GxIJUecwpLpWQ8XOV8871SSshfqM7sDE-9jvbQzLkBbTniRoyw/exec", {

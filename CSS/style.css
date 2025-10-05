@@ -7,7 +7,10 @@ body {
 
     background-image: url(../Pictures/lila.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+
 }
 
 #headerH2 {
