@@ -90,7 +90,7 @@ form.addEventListener("submit", async (e) => {
     try {
         const response = await fetch("https://script.google.com/macros/s/AKfycbwuz6oH2h0Nna1yiJy2GxIJUecwpLpWQ8XOV8871SSshfqM7sDE-9jvbQzLkBbTniRoyw/exec", {
             method: "POST",
-            mode: "cors",
+            mode: "no-cors",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         });
