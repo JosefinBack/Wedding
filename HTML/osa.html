@@ -41,17 +41,18 @@
                     <p>Personlig information</p>
                     <div class="persons">
                         <label>Förnamn:
-                            <input type="text" name="name[]" class="input-field" required>
+                            <input type="text" name="firstName[]" class="input-field" required>
                         </label>
                         <label>Efternamn:
-                            <input type="text" name="name[]" class="input-field" required>
+                            <input type="text" name="lastName[]" class="input-field" required>
                         </label>
-                        <label>Allergier:
+                        <label class="allergy-field">Allergier:
                             <input type="text" name="allergy[]" class="input-field"
                                 placeholder="Lämna tom om du ej har någon allergi">
                         </label>
                     </div>
                 </div>
+
 
                 <button type="button" id="addPerson">Lägg till en person</button>
                 <button type="submit">Skicka OSA</button>
