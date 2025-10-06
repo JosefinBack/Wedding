@@ -1,6 +1,5 @@
 const form = document.getElementById("osaForm");
 const addPersonBtn = document.getElementById("addPerson");
-const message = document.getElementById("message");
 
 /* =========================================================
    Uppdatera fälten beroende på JA/NEJ
@@ -144,21 +143,37 @@ form.addEventListener("submit", async function (e) {
     // Vänta på användarens svar (via Promise)
     const userConfirmed = await new Promise(function (resolve) {
         confirmYesBtn.onclick = function () {
-            overlay.style.display = "none";
             resolve(true);
         };
         confirmNoBtn.onclick = function () {
-            overlay.style.display = "none";
             resolve(false);
         };
     });
 
     if (!userConfirmed) {
-        message.textContent = "Inget skickades.";
+        confirmTextEl.innerHTML = "OSA avbruten 💭";
+        confirmYesBtn.style.display = "none";
+        confirmNoBtn.style.display = "none";
+
+        setTimeout(function () {
+            overlay.style.display = "none";
+            confirmYesBtn.style.display = "inline-block";
+            confirmNoBtn.style.display = "inline-block";
+            confirmTextEl.innerHTML = "";
+        }, 2000);
+
         return;
     }
 
-    message.textContent = "Skickar...";
+    confirmTextEl.innerHTML = `
+        <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <p>Skickar ditt svar... 💌</p>
+        </div>
+        `;
+
+    confirmYesBtn.style.display = "none";
+    confirmNoBtn.style.display = "none";
 
     /* ===== Skicka till Google Sheet ===== */
     try {
@@ -171,16 +186,50 @@ form.addEventListener("submit", async function (e) {
                 body: JSON.stringify(person)
             });
         }
+        // 🌸 Visa tack-meddelande i popupen
+        confirmTextEl.textContent = "Tack för din OSA! 💕";
+        confirmYesBtn.style.display = "none";
+        confirmNoBtn.style.display = "none";
 
-        message.textContent = "Tack för din OSA! 💕";
-        form.reset();
+        // Visa i 3 s, tona ut och stäng, återställ sedan
+        setTimeout(function () {
+            overlay.style.opacity = "0";
+            setTimeout(function () {
+                overlay.style.display = "none";
+                overlay.style.opacity = "1"; // återställ för nästa öppning
+                confirmYesBtn.style.display = "inline-block";
+                confirmNoBtn.style.display = "inline-block";
+                confirmTextEl.textContent = "";
 
-        // Återställ till en tom persons-sektion
-        form.querySelectorAll(".divInForm").forEach(function (section, index) {
-            if (index > 0) section.remove();
-        });
+                form.reset();
+
+                // Ta bort extra personsektioner (förutom den första)
+                const extraSections = form.querySelectorAll(".divInForm");
+                for (let i = 1; i < extraSections.length; i++) {
+                    extraSections[i].remove();
+                }
+            }, 800); // matchar CSS-transitionen
+        }, 3000);
+
+
+        // Vänta 3 sekunder, stäng popupen och återställ
+        setTimeout(function () {
+            overlay.style.display = "none";
+            confirmYesBtn.style.display = "inline-block";
+            confirmNoBtn.style.display = "inline-block";
+            confirmTextEl.innerHTML = ""; // rensa texten
+
+            form.reset();
+
+            // Ta bort extra personsektioner (förutom den första)
+            const extraSections = form.querySelectorAll(".divInForm");
+            for (let i = 1; i < extraSections.length; i++) {
+                extraSections[i].remove();
+            }
+        }, 3000);
+
     } catch (error) {
         console.error(error);
-        message.textContent = "Något gick fel. Försök igen senare.";
+        confirmTextEl.innerHTML = "Något gick fel. Försök igen senare 😔";
     }
 });
