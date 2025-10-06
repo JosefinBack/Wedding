@@ -132,8 +132,28 @@ form.addEventListener("submit", async function (e) {
     }
     confirmationText += names.join(", ") + ".";
 
-    const confirmed = confirm(confirmationText);
-    if (!confirmed) {
+    // Visa egen bekräftelseruta
+    const overlay = document.getElementById("confirmationOverlay");
+    const confirmTextEl = document.getElementById("confirmText");
+    const confirmYesBtn = document.getElementById("confirmYes");
+    const confirmNoBtn = document.getElementById("confirmNo");
+
+    confirmTextEl.textContent = confirmationText;
+    overlay.style.display = "flex";
+
+    // Vänta på användarens svar (via Promise)
+    const userConfirmed = await new Promise(function (resolve) {
+        confirmYesBtn.onclick = function () {
+            overlay.style.display = "none";
+            resolve(true);
+        };
+        confirmNoBtn.onclick = function () {
+            overlay.style.display = "none";
+            resolve(false);
+        };
+    });
+
+    if (!userConfirmed) {
         message.textContent = "Inget skickades.";
         return;
     }

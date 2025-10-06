@@ -18,8 +18,8 @@
         <div id="mainDiv">
             <h2 class="firstH2OnPage">OSA till vårt bröllop</h2>
             <h3 class="center">Senast den 11 januari 2026 skulle vi vilja ha ert svar</h3>
-            <p>OSA för varje person som ska ge ett svar. Genom att klicka på "Lägg till person"-knappen så kommer nya
-                fält läggas till.</p>
+            <p>Är ni flera personer på samma inbjudan går det bra att o.s.a. för alla samtidigt genom att klicka på
+                "Lägg till person" längst ner i formuläret.</p>
 
             <form id="osaForm">
 
@@ -62,6 +62,20 @@
     </main>
     <script src="../Javascript/header-inside.js"></script>
     <script src="../Javascript/wedding.js"></script>
+
+    <!-- Egna bekräftelse-popupen -->
+    <div id="confirmationOverlay" class="overlay" style="display: none;">
+        <div class="confirm-box">
+            <div class="confirm-content">
+                <p id="confirmText"></p>
+                <div class="buttons">
+                    <button id="confirmYes">Skicka</button>
+                    <button id="confirmNo">Avbryt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 
