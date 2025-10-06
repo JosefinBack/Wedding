@@ -103,9 +103,9 @@ form.addEventListener("submit", async (e) => {
     // 🟢 Bekräftelse innan skick
     let confirmationText = "Är du säker på att du vill skicka din OSA?\n\n";
     if (attendance === "JA") {
-        confirmationText += `Du kommer att OSA JA för ${names.join(", ")}.`;
+        confirmationText += `Du kommer att OSA JA för ${firstNames.join(", ")}.`;
     } else {
-        confirmationText += `Du kommer att OSA NEJ för ${names.join(", ")}.`;
+        confirmationText += `Du kommer att OSA NEJ för ${firstNames.join(", ")}.`;
     }
 
     const confirmed = confirm(confirmationText);
@@ -125,10 +125,18 @@ form.addEventListener("submit", async (e) => {
         message.textContent = "Tack för din OSA! 💕";
         form.reset();
         personsDiv.innerHTML = `
-            <div class="person">
-                <label>Namn: <input type="text" name="name[]" required></label>
-                <label class="allergy-field">Allergier: <input type="text" name="allergy[]"></label>
-            </div>`;
+            <div id="persons">
+                        <label>Förnamn:
+                            <input type="text" name="name[]" class="input-field" required>
+                        </label>
+                        <label>Efternamn:
+                            <input type="text" name="name[]" class="input-field" required>
+                        </label>
+                        <label>Allergier:
+                            <input type="text" name="allergy[]" class="input-field"
+                                placeholder="Lämna tom om du ej har någon allergi">
+                        </label>
+                    </div>`;
     } catch (error) {
         console.error(error);
         message.textContent = "Något gick fel. Försök igen senare.";
