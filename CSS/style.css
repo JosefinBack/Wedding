@@ -288,7 +288,7 @@ button:hover {
 }
 
 .loading-spinner {
-    border: 3px solid lightgray;
+    border: 3px solid green;
     border-top: 3px solid #a5d5af;
     border-radius: 50%;
     width: 40px;
