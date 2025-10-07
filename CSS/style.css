@@ -134,6 +134,12 @@ a:hover {
     border-bottom: 1px solid lightgrey;
 }
 
+#picToastmaster {
+    height: 300px;
+    width: auto;
+    border-radius: 50%;
+}
+
 .picInWeddingDiv {
     width: 250px;
     height: 250px;
