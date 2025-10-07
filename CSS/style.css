@@ -135,9 +135,19 @@ a:hover {
 }
 
 .picInWeddingDiv {
-    width: 200px;
-    height: 200px;
-    background-color: #debffa;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+#picInfo {
+    margin-top: 45px;
+}
+
+#picOnIndex {
+    display: flex;
+    align-items: center;
 }
 
 .divFlex {
@@ -304,5 +314,57 @@ button:hover {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+
+
+
+/* Större surfplattor och mindre laptops */
+@media (max-width: 1000px) {
+    #mainDiv {
+        width: 90%;
+    }
+
+    .divFlex {
+        gap: 20px;
+    }
+
+    #topMeny a {
+        font-size: 18px;
+        padding: 10px;
+    }
+}
+
+/* Mobiler */
+@media (max-width: 600px) {
+    body {
+        background-size: cover;
+    }
+
+    .divFlex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .picInWeddingDiv {
+        width: 90%;
+        height: auto;
+    }
+
+    #mainDiv {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    #topMeny {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #topMeny a {
+        display: block;
+        width: 100%;
     }
 }
