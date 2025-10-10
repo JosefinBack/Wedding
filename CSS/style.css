@@ -156,6 +156,12 @@ a:hover {
     align-items: center;
 }
 
+#picOnContact {
+    height: 400px;
+    width: auto;
+    border-radius: 20px;
+}
+
 .divFlex {
     display: flex;
     gap: 40px;
