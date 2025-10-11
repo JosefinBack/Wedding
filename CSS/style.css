@@ -227,7 +227,7 @@ label {
 button {
     background-color: #a5d5af;
     color: white;
-    border: none;
+    border: 1px solid black;
     padding: 10px 15px;
     border-radius: 6px;
     cursor: pointer;
@@ -253,15 +253,15 @@ button:hover {
 }
 
 .confirm-box {
-    background-image: url("../Pictures/rosa\ syrener.jpg");
+    background-image: url("../Pictures/rosasyrener.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 3rem 2rem;
+    padding: 20px;
     border-radius: 15px;
     text-align: center;
-    width: 90%;
-    max-width: 400px;
+    width: 400px;
+    height: 200px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -418,7 +418,7 @@ button:hover {
 
     .custom-dropdown {
         display: block;
-        width: 50%;
+        width: 60%;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
@@ -479,5 +479,16 @@ button:hover {
 
     #mainH4 {
         font-size: 15px;
+    }
+
+    .persons {
+        display: block;
+    }
+
+    .confirm-box {
+        width: 80%;
+        height: 200px;
+        background-size: cover;
+        background-position: left;
     }
 }
