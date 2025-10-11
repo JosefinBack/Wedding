@@ -364,6 +364,10 @@ button:hover {
         font-size: 35px;
     }
 
+    h3 {
+        margin: 5px;
+    }
+
     #headerH3 {
         font-size: 23px;
     }
@@ -394,12 +398,17 @@ button:hover {
     }
 
     .picInWeddingDiv {
-        width: 90%;
-        height: auto;
+        width: 150px;
+        height: 150px;
+    }
+
+    #picInfo {
+        margin-top: 0px;
+
     }
 
     #mainDiv {
-        width: 95%;
+        width: 80%;
         margin: 20px auto;
     }
 
@@ -459,7 +468,16 @@ button:hover {
         transition: transform 0.3s ease;
     }
 
-    .dropdown-list.open~.dropdown-selected svg {
+    .custom-dropdown.open .dropdown-selected svg {
         transform: rotate(180deg);
+    }
+
+
+    .firstH2OnPage {
+        font-size: 35px;
+    }
+
+    #mainH4 {
+        font-size: 15px;
     }
 }

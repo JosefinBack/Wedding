@@ -45,6 +45,7 @@ function initDropdown() {
 
     selected.addEventListener("click", function () {
         list.classList.toggle("open");
+        dropdown.classList.toggle("open");
     });
 
     document.addEventListener("click", function (e) {
