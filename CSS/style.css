@@ -357,7 +357,7 @@ button:hover {
 /* Mobiler */
 @media (max-width: 600px) {
     #headerH2 {
-        font-size: 27px;
+        font-size: 23px;
     }
 
     h1 {
