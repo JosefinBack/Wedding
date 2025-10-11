@@ -1,5 +1,43 @@
 const form = document.getElementById("osaForm");
 const addPersonBtn = document.getElementById("addPerson");
+const countdownDiv = document.getElementById("countdown");
+
+/* =========================================================
+   NEDRÄKNING TILL BRÖLLOPET 💍
+========================================================= */
+
+if (countdownDiv) {
+    const weddingDate = new Date("May 9, 2026 14:00:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance <= 0) {
+            countdownDiv.innerHTML = "Idag är det bröllop! 🎉💍";
+            clearInterval(timer);
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownDiv.innerHTML = `
+            <span>${days} dagar</span>
+            <span>${hours} timmar</span>
+            <span>${minutes} minuter</span>
+            <span>${seconds} sekunder</span>
+        `;
+    }
+
+    updateCountdown(); // visa direkt
+    window.timer = setInterval(updateCountdown, 1000);
+}
+
+
+
 
 /* =========================================================
    Uppdatera fälten beroende på JA/NEJ

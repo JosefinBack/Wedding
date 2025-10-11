@@ -350,8 +350,35 @@ button:hover {
 
 /* Mobiler */
 @media (max-width: 600px) {
-    body {
-        background-size: cover;
+    #headerH2 {
+        font-size: 27px;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
+    #headerH3 {
+        font-size: 23px;
+    }
+
+    #header {
+        margin-top: 130px;
+    }
+
+    #countdown {
+        font-size: 15px;
+        margin-top: 40px;
+    }
+
+    #countdown span {
+        display: inline-block;
+        margin: 0px 3px;
+        padding: 5px 10px;
+        background: #a5d5af;
+        border: 1px solid white;
+        border-radius: 10px;
+        width: 55px;
     }
 
     .divFlex {
