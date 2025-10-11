@@ -391,6 +391,10 @@ button:hover {
         width: 55px;
     }
 
+    #dresscode {
+        text-align: left;
+    }
+
     .divFlex {
         flex-direction: column;
         align-items: center;
