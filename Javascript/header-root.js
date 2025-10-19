@@ -18,7 +18,6 @@ meny.innerHTML = `
         <a href ="HTML/list.html">Gåvor</a>
         <a href ="HTML/osa.html">O.S.A</a>
         <a href ="HTML/toastmaster.html">Tal & Toastmaster</a>
-        <a href ="HTML/contact.html">Kontakt</a>
     </div>
 
  <!-- Dropdown (mobil) -->
@@ -32,7 +31,6 @@ meny.innerHTML = `
           <li><a href="HTML/list.html">Gåvor</a></li>
           <li><a href="HTML/osa.html">O.S.A</a></li>
           <li><a href="HTML/toastmaster.html">Tal & Toastmaster</a></li>
-          <li><a href="HTML/contact.html">Kontakt</a></li>
       </ul>
   </div>
 `
