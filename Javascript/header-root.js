@@ -15,7 +15,6 @@ meny.innerHTML = `
         <a href ="HTML/wedding.html">Bröllopet</a>
         <a href ="HTML/info.html" >Info</a>
         <a href ="HTML/housing.html">Boende</a>
-        <a href ="HTML/list.html">Gåvor</a>
         <a href ="HTML/osa.html">O.S.A</a>
         <a href ="HTML/toastmaster.html">Tal & Toastmaster</a>
     </div>
@@ -28,7 +27,6 @@ meny.innerHTML = `
           <li><a href="HTML/wedding.html">Bröllopet</a></li>
           <li><a href="HTML/info.html">Info</a></li>
           <li><a href="HTML/housing.html">Boende</a></li>
-          <li><a href="HTML/list.html">Gåvor</a></li>
           <li><a href="HTML/osa.html">O.S.A</a></li>
           <li><a href="HTML/toastmaster.html">Tal & Toastmaster</a></li>
       </ul>
