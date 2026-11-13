@@ -14,7 +14,7 @@ if (countdownDiv) {
         const distance = weddingDate - now;
 
         if (distance <= 0) {
-            countdownDiv.innerHTML = "Idag är det bröllop! 🎉💍";
+            countdownDiv.innerHTML = "Nedräkningen har nått sitt slut 🎉💍";
             clearInterval(timer);
             return;
         }
