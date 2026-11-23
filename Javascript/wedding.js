@@ -15,7 +15,6 @@ if (countdownDiv) {
 
     if (distance <= 0) {
       countdownDiv.innerHTML = "Nedräkningen har nått sitt slut 🎉💍";
-      clearInterval(timer);
       return;
     }
 
@@ -35,7 +34,6 @@ if (countdownDiv) {
   }
 
   updateCountdown(); // visa direkt
-  window.timer = setInterval(updateCountdown, 1000);
 }
 
 /* =========================================================
@@ -284,10 +282,9 @@ for (let i = 0; i < attendanceRadios.length; i++) {
    DEMOVERSION - INGA SVAR SKICKAS
 ========================================================= */
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+const sendOSA = document.getElementById("sendOSA");
+const demoMessage = document.getElementById("demoMessage");
 
-  const demoMessage = document.getElementById("demoMessage");
-
+sendOSA.addEventListener("click", function () {
   demoMessage.textContent = "Detta är en demo. Inga svar har skickats 💕";
 });
