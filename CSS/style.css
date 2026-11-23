@@ -186,6 +186,14 @@ ul {
 
 /* Formulär */
 
+#demoMessage {
+    margin-left: 15px;
+    color: #79634F;
+    font-style: italic;
+    font-size: 14px;
+}
+
+
 form {
     background-color: white;
     padding: 20px;
